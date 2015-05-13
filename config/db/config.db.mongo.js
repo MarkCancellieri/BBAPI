@@ -2,7 +2,7 @@
 
 // Module dependencies
 var mongoose = require('mongoose');
-var config = require('../config');
+var config   = require('../config');
 
 // Connect to MongoDB
 var db = mongoose.connect(config.mongoURI);

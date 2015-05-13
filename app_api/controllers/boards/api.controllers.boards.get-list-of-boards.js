@@ -1,17 +1,17 @@
 'use strict';
 
 // Module dependencies
-var mongoose = require('mongoose');
-var config = require('../../../config/config');
+var mongoose     = require('mongoose');
+var config       = require('../../../config/config');
 
-var Board = mongoose.model('Board');
+var Board        = mongoose.model('Board');
 var defaultLimit = config.boardPaginateDefaultLimit;
-var maxLimit = config.boardPaginateMaxLimit;
+var maxLimit     = config.boardPaginateMaxLimit;
 
 // Get a list of boards
 var getListOfBoards = function (req, res) {
   var query = {};
-  var page = parseInt(req.query.page)  || 1;
+  var page  = parseInt(req.query.page)  || 1;
   var limit = parseInt(req.query.limit) || defaultLimit;
   if (limit > maxLimit) limit = maxLimit;
 
@@ -20,7 +20,7 @@ var getListOfBoards = function (req, res) {
       console.error(error);
     } else {
       res.status(200).json({
-        boards: paginatedResults,
+        boards:    paginatedResults,
         pageCount: pageCount,
         itemCount: itemCount});
     }

@@ -1,8 +1,8 @@
 'use strict';
 
 // Module dependencies
-var crypto = require('crypto');
-var mongoose = require('mongoose');
+var crypto           = require('crypto');
+var mongoose         = require('mongoose');
 var mongoosePaginate = require('mongoose-paginate');
 
 // Define user schema
@@ -46,15 +46,15 @@ var userSchema = new mongoose.Schema({
 userSchema.virtual('fullName').get(function() {
   return this.firstName + ' ' + this.lastName;
 }).set(function(fullName) {
-  var splitName = fullName.split(' ');
+  var splitName  = fullName.split(' ');
   this.firstName = splitName[0] || '';
-  this.lastName = splitName[1] || '';
+  this.lastName  = splitName[1] || '';
 });
 
 // Use a pre-save middleware to hash the password
 userSchema.pre('save', function(next) {
   if (this.password) {
-    this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
+    this.salt     = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
     this.password = this.hashPassword(this.password);
   }
 
