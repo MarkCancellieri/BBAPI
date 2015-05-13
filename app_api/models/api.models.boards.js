@@ -1,8 +1,8 @@
 'use strict';
 
 // Module dependencies
-var mongoose          = require('mongoose');
-var mongoosePaginate  = require('mongoose-paginate');
+var mongoose = require('mongoose');
+var mongoosePaginate = require('mongoose-paginate');
 
 // Define board schema
 var boardSchema = new mongoose.Schema({

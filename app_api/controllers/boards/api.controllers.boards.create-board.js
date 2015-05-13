@@ -1,8 +1,8 @@
 'use strict';
 
 // Module dependencies
-var mongoose          = require('mongoose');
-var Board             = mongoose.model('Board');
+var mongoose = require('mongoose');
+var Board = mongoose.model('Board');
 
 // Create a new board.
 var createBoard = function (req, res) {

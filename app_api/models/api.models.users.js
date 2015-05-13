@@ -1,9 +1,9 @@
 'use strict';
 
 // Module dependencies
-var crypto            = require('crypto');
-var mongoose          = require('mongoose');
-var mongoosePaginate  = require('mongoose-paginate');
+var crypto = require('crypto');
+var mongoose = require('mongoose');
+var mongoosePaginate = require('mongoose-paginate');
 
 // Define user schema
 var userSchema = new mongoose.Schema({
