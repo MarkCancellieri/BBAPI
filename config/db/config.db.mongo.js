@@ -9,7 +9,7 @@ var db = mongoose.connect(config.mongoURI);
 
 // Monitor Mongoose for connects and disconnects
 mongoose.connection.on('connected', function () {
-  console.log('Mongoose connected to ' + config.mongoURI);
+  console.log('Mongoose connected to ' + config.mongoURI + '\n');
 });
 mongoose.connection.on('error',function (err) {
   console.log('Mongoose connection error: ' + err);

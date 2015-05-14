@@ -1,1 +1,2 @@
 --require should
+--require ./test/test.environment.js
