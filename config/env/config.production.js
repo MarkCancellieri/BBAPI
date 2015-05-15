@@ -2,5 +2,5 @@
 
 // Set the 'production' environment configuration object
 module.exports = {
-  mongoURI: 'mongodb://localhost/bb-production'
+  mongoURI : 'mongodb://localhost/bb-production'
 };

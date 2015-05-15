@@ -14,15 +14,15 @@ function configureExpressApp() {
   app.set('x-powered-by', false);
 
   // Configure middleware
-  if (process.env.NODE_ENV === 'development') app.use(middleware.logger('dev'));
-  if (process.env.NODE_ENV === 'production') app.use(middleware.compress());
+  if (process.env.NODE_ENV === 'development') {app.use(middleware.logger('dev'));}
+  if (process.env.NODE_ENV === 'production')  {app.use(middleware.compress());}
   app.use(middleware.bodyParser.json());
   app.use(middleware.bodyParser.urlencoded({extended: true}));
   app.use(middleware.methodOverride());
-  app.use(middleware.session({    // TODO: add Mongo or Redis session store
-    saveUninitialized: true,
-    resave: true,                 // TODO: false unless necessary for session store?
-    secret: config.sessionSecret
+  app.use(middleware.session({      // TODO: Add Mongo/Redis session store
+    saveUninitialized : true,
+    resave            : true,       // TODO: Review resave option
+    secret            : config.sessionSecret
   }));
   // app.use(middleware.csurf()) TODO: figure out how to use this!
   app.use(middleware.flash());

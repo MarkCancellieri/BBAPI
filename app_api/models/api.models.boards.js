@@ -7,9 +7,9 @@ var mongoosePaginate = require('mongoose-paginate');
 // Define board schema
 var boardSchema = new mongoose.Schema({
   name: {
-    type: String,
-    trim: true,
-    required: 'Board name cannot be blank.'
+    type     : String,
+    trim     : true,
+    required : 'Board name cannot be blank.'
   },
   posts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Post'}]
 });

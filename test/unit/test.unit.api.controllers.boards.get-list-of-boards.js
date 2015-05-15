@@ -12,21 +12,21 @@ describe('getListOfBoards controller', function() {
 
   before(function() {
     // Create new boards to retrieve
-    request(server).post('/api/boards').send(newBoardData1).end(function (err, res) {
-      if (err) console.log(err);
+    request(server).post('/api/boards').send(newBoardData1).end(function(err, res) {
+      if (err) {console.log(err);}
     });
-    request(server).post('/api/boards').send(newBoardData2).end(function (err, res) {
-      if (err) console.log(err);
+    request(server).post('/api/boards').send(newBoardData2).end(function(err, res) {
+      if (err) {console.log(err);}
     });
   });
 
   after(function() {
     // Remove new boards after tests are completed
     Board.remove({name: newBoardData1.name}, function(err) {
-      if (err) console.log(err);
+      if (err) {console.log(err);}
     });
     Board.remove({name: newBoardData2.name}, function(err) {
-      if (err) console.log(err);
+      if (err) {console.log(err);}
     });
   });
 

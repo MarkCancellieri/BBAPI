@@ -12,7 +12,7 @@ describe('createBoard controller', function() {
   after(function() {
     // Remove new board after tests are completed
     Board.remove({name: newBoardData.name}, function(err) {
-      if (err) console.log(err);
+      if (err) {console.log(err);}
     });
   });
 

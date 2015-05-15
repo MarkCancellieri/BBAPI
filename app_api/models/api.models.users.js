@@ -10,18 +10,18 @@ var userSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   email: {
-    type: String,
-    match: [/.+\@.+\..+/, "Please fill a valid email address"]
+    type  : String,
+    match : [/.+\@.+\..+/, 'Please fill a valid email address']
   },
   username: {
-    type: String,
-    unique: true,
-    required: 'Username is required',
-    trim: true
+    type     : String,
+    unique   : true,
+    required : 'Username is required',
+    trim     : true
   },
   password: {
-    type: String,
-    validate: [
+    type     : String,
+    validate : [
       function(password) {
         return password && password.length > 6;
       }, 'Password should be longer than 6 characters'
@@ -31,14 +31,14 @@ var userSchema = new mongoose.Schema({
     type: String
   },
   provider: {
-    type: String,
-    required: 'Authentication provider is required'
+    type     : String,
+    required : 'Authentication provider is required'
   },
   providerId: String,
   providerData: {},
   created: {
-    type: Date,
-    default: Date.now
+    type    : Date,
+    default : Date.now
   }
 });
 
@@ -80,11 +80,13 @@ userSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 
   // Use the 'User' model 'findOne' method to find an available unique username
   _this.findOne({
-    username: possibleUsername
+    username : possibleUsername
   }, function(err, user) {
-    // If an error occurs call the callback with a null value, otherwise find find an available unique username
+    // If an error occurs call the callback with a null value, otherwise find an
+    // available unique username
     if (!err) {
-      // If an available unique username was found call the callback method, otherwise call the 'findUniqueUsername' method again with a new suffix
+      // If an available unique username was found call the callback method,
+      // otherwise call the 'findUniqueUsername' method again with a new suffix
       if (!user) {
         callback(possibleUsername);
       } else {
@@ -98,8 +100,8 @@ userSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 
 // Configure the 'userSchema' to use getters and virtuals when transforming to JSON
 userSchema.set('toJSON', {
-  getters: true,
-  virtuals: true
+  getters  : true,
+  virtuals : true
 });
 
 // Add paginate plugin
